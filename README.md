@@ -2,7 +2,7 @@
 
 ## Description
 
-The Talking CV project is a React-based application designed to showcase a dynamic Curriculum Vitae (CV) with integrated video sections. This innovative approach allows users to navigate through different CV sections, such as education, work experience, and a motivation letter, with accompanying videos that play in Picture-in-Picture (PiP) mode or within a designated area on the screen. The data for each section, including video paths and positioning, is stored in a local JSON database, making it easy to update and maintain.
+The Talking CV project is a React-based application designed to showcase a dynamic Curriculum Vitae (CV) with integrated video sections. This innovative approach allows users to navigate through different CV sections, such as education, work experience, and a motivation letter, with accompanying videos within a designated area on the screen. The data for each section, including video paths and positioning, is stored in a local JSON database, making it easy to update and maintain.
 
 ## Features
 
