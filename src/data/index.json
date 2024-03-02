@@ -1,0 +1,167 @@
+{
+  "skills": [
+    {
+      "id": "1",
+      "src": "./img/c-icon.png",
+      "title": "Embedded /C",
+      "description": "I've gain my expertise through hands-on experience with Embedded C, developing efficient and reliable software for embedded projects, Showcasing a robust ability to tackle challenges in embedded systems with precision and innovation."
+    },
+    {
+      "id": "2",
+      "src": "./img/python.png",
+      "title": "Python Programming",
+      "description": "I've driven diverse projects from machine learning algorithms to interactive console games and compact applications, demonstrating a versatile command of Python in solving challenges."
+    },
+    {
+      "id": "3",
+      "src": "./img/linux.png",
+      "title": "Basic of Linux",
+      "description": "My Linux expertise encompasses programming for server environments,  With hands-on experience, I adeptly navigate through Linux to enhance server reliability and efficiency."
+    },
+    {
+      "id": "4",
+      "src": "./img/problem-solving.png",
+      "title": "Problem Solving",
+      "description": "I've tackled numerous challenges across various projects, platforms, and programming languages. My approach combines analytical thinking with innovative strategies, resulting in effective solutions that drive project success."
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "src": "./img/placeholder-image.png",
+      "title": "Ahuse",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View In Github"
+    },
+    {
+      "id": "2",
+      "src": "./img/placeholder-image-1.png",
+      "title": "App Dashboard",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View In Github"
+    },
+    {
+      "id": "3",
+      "src": "./img/placeholder-image-2.png",
+      "title": "Easy Rentn",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique",
+      "link": "View In Github"
+    }
+  ],
+  "testimonial": [
+    {
+      "id": "1",
+      "count": "5",
+      "src": "./img/jouni.JPG",
+      "imageSrc": "./img/Recommendation letter LAB.JPG",
+      "author_name": "Jouni könönen",
+      "author_designation": "LAB UAS"
+    },
+    {
+      "id": "2",
+      "count": "5",
+      "src": "./img/Logo-umbb-crsic.png",
+      "imageSrc": "./img/recommendation letter.JPG",
+      "author_name": "Pr.Boulif Menouar",
+      "author_designation": "IT Department UMBB"
+    },
+    {
+      "id": "3",
+      "count": "5",
+      "src": "./img/ELECTRO CLUB.png",
+      "imageSrc": "./img/Certificate of Appreciation.JPG",
+      "author_name": "Mohammed Kamzi",
+      "author_designation": "ELECTRO CLUB"
+    },
+    {
+      "id": "4",
+      "count": "5",
+      "src": "./img/tamk.png",
+      "imageSrc": "./img/Transcript of Records.JPG",
+      "author_name": "TAMK UAS",
+      "author_designation": "ELECTRO CLUB"
+    }
+  ],
+  "workExperiences": [
+    {
+      "title": "Software Engineer",
+      "company": "Tech Solutions Inc.",
+      "year": "2022 - Present",
+      "description": "Developed and maintained code for in-house and client websites primarily using HTML, CSS, Sass, JavaScript, and React."
+    },
+    {
+      "title": "Junior Web Developer",
+      "company": "Web Innovations LLC",
+      "year": "2020 - 2022",
+      "description": "Assisted in the development of web applications and websites from concept through deployment, with a focus on the front end."
+    }
+
+  ],
+  "contactInfo": [
+    {
+      "type": "linkedin",
+      "text": "Your LinkedIn Profile",
+      "link": "https://www.linkedin.com/in/yourprofile"
+    },
+    {
+      "type": "email",
+      "text": "your.email@gmail.com",
+      "link": "mailto:your.email@gmail.com"
+    },
+    {
+      "type": "phone",
+      "text": "+1234567890",
+      "link": "tel:+1234567890"
+    },
+    {
+      "type": "address",
+      "text": "123 Your Street, Your City, Your Country",
+      "link": "#"
+    }
+  ],
+  "talkingCVSections": [
+    {
+      "id": "section1",
+      "section" : "heroSection",
+      "videoPath": "./video/sample.mp4",
+      "position": { "x": 80, "y": 30 },
+      "positionSmall": { "x": 50, "y": 30 }
+    },
+    {
+      "id": "section2",
+      "section" : "Education",
+      "videoPath": "./video/sample1.mp4",
+      "position": { "x": 17, "y": 25 },
+      "positionSmall": { "x": 50, "y": 30 }
+    },
+    {
+      "id": "section3",
+      "section" : "MyPortfolio",
+      "videoPath": "./video/sample2.mp4",
+      "position": {"x": 78, "y": 35 },
+      "positionSmall": { "x": 50, "y": 30 }
+    },
+    {
+      "id": "section4",
+      "section" : "WorkExperience",
+      "videoPath": "./video/sample3.mp4",
+      "position": { "x": 78, "y": 30 },
+      "positionSmall": { "x": 50, "y": 30 }
+    },
+    {
+      "id": "section5",
+      "section" : "Certifications",
+      "videoPath": "./video/sample4.mp4",
+      "position": { "x": 80, "y": 40 },
+      "positionSmall": { "x": 50, "y": 30 }
+    },
+    {
+      "id": "section6",
+      "section" : "Contact",
+      "videoPath": "./video/sample.mp4",
+      "position": { "x": 80, "y": 40 },
+      "positionSmall": { "x": 50, "y": 30 }
+    }
+  ]
+
+}
