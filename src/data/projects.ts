@@ -1,0 +1,58 @@
+import type { Project } from './types'
+
+export const projects: Project[] = [
+  {
+    id: 'portfolio-site',
+    title: 'Portfolio Site',
+    description: 'A personal portfolio showcasing projects and skills.',
+    image: '/img/projects/portfolio-site.png',
+    tech: ['react', 'typescript', 'tailwind', 'responsive-design'],
+    github: 'https://github.com/yourusername/portfolio-site',
+    live: 'https://example.com/portfolio-site',
+  },
+  {
+    id: 'task-manager-api',
+    title: 'Task Manager API',
+    description: 'A RESTful API for managing tasks with authentication.',
+    image: '/img/projects/task-manager-api.png',
+    tech: ['nodejs', 'typescript', 'rest-apis'],
+    github: 'https://github.com/yourusername/task-manager-api',
+    live: 'https://example.com/task-manager-api',
+  },
+  {
+    id: 'weather-dashboard',
+    title: 'Weather Dashboard',
+    description: 'A dashboard that fetches and displays live weather data.',
+    image: '/img/projects/weather-dashboard.png',
+    tech: ['javascript', 'react', 'rest-apis'],
+    github: 'https://github.com/yourusername/weather-dashboard',
+    live: 'https://example.com/weather-dashboard',
+  },
+  {
+    id: 'chat-cli',
+    title: 'Chat CLI',
+    description: 'A command-line chat utility built with Python.',
+    image: '/img/projects/chat-cli.png',
+    tech: ['python', 'linux'],
+    github: 'https://github.com/yourusername/chat-cli',
+    live: 'https://example.com/chat-cli',
+  },
+  {
+    id: 'ecommerce-storefront',
+    title: 'E-commerce Storefront',
+    description: 'A responsive storefront with product browsing and cart.',
+    image: '/img/projects/ecommerce-storefront.png',
+    tech: ['react', 'tailwind', 'html-css'],
+    github: 'https://github.com/yourusername/ecommerce-storefront',
+    live: 'https://example.com/ecommerce-storefront',
+  },
+  {
+    id: 'dev-blog',
+    title: 'Dev Blog',
+    description: 'A markdown-driven blog with tags and search.',
+    image: '/img/projects/dev-blog.png',
+    tech: ['react', 'git', 'rest-apis'],
+    github: 'https://github.com/yourusername/dev-blog',
+    live: 'https://example.com/dev-blog',
+  },
+]

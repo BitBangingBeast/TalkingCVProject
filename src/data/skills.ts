@@ -1,0 +1,88 @@
+import type { Skill } from './types'
+
+export const skills: Skill[] = [
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    category: 'languages',
+    icon: '🟨',
+    note: 'Modern ES2023+, DOM manipulation, async/await',
+  },
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    category: 'languages',
+    icon: '🔷',
+    note: 'Strict typing, interfaces, generics',
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    category: 'languages',
+    icon: '🐍',
+    note: 'Scripting, automation and small machine-learning projects',
+  },
+  {
+    id: 'html-css',
+    name: 'HTML/CSS',
+    category: 'languages',
+    icon: '🎨',
+    note: 'Semantic markup, layouts, modern CSS',
+  },
+  {
+    id: 'react',
+    name: 'React',
+    category: 'frameworks-tools',
+    icon: '⚛️',
+    note: 'Hooks, component design, React 19',
+  },
+  {
+    id: 'tailwind',
+    name: 'Tailwind CSS',
+    category: 'frameworks-tools',
+    icon: '🌀',
+    note: 'Utility-first styling and theme tokens',
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    category: 'frameworks-tools',
+    icon: '🟩',
+    note: 'CLI tools, Express, npm',
+  },
+  {
+    id: 'git',
+    name: 'Git/GitHub',
+    category: 'frameworks-tools',
+    icon: '🐙',
+    note: 'Version control, branching, pull requests',
+  },
+  {
+    id: 'linux',
+    name: 'Linux',
+    category: 'frameworks-tools',
+    icon: '🐧',
+    note: 'Shell scripting and server environments',
+  },
+  {
+    id: 'responsive-design',
+    name: 'Responsive Design',
+    category: 'concepts-practices',
+    icon: '📱',
+    note: 'Mobile-first layouts and breakpoints',
+  },
+  {
+    id: 'rest-apis',
+    name: 'REST APIs',
+    category: 'concepts-practices',
+    icon: '🔗',
+    note: 'Designing, consuming and testing CRUD APIs',
+  },
+  {
+    id: 'problem-solving',
+    name: 'Problem Solving',
+    category: 'concepts-practices',
+    icon: '🧩',
+    note: 'Analytical thinking across languages and platforms',
+  },
+]
