@@ -5,7 +5,6 @@ export default function WorkExperience() {
   return (
     <Section id="work-experience">
       <SectionHeading
-        eyebrow="Career"
         title="Work Experience"
         subtitle="Where I have worked and what I have done."
       />

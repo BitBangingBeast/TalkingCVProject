@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Card, Section, SectionHeading } from '../../components/ui'
 import { certifications } from '../../data'
 
@@ -71,7 +72,6 @@ export default function Certifications() {
   return (
     <Section id="certifications">
       <SectionHeading
-        eyebrow="Credentials"
         title="Certifications"
         subtitle="Recommendation letters, certificates, and transcripts gathered along the way."
       />
@@ -101,39 +101,42 @@ export default function Certifications() {
         ))}
       </div>
 
-      {active ? (
-        <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label={active.title}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-surface/90 p-4"
-          onClick={close}
-        >
-          <div
-            className="relative max-h-full max-w-4xl"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              ref={closeButtonRef}
-              type="button"
+      {active
+        ? createPortal(
+            <div
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label={active.title}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-surface/90 p-4"
               onClick={close}
-              aria-label="Close"
-              className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-surface-raised text-ink transition-colors hover:text-neon-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan"
             >
-              ×
-            </button>
-            <img
-              src={active.image}
-              alt={active.title}
-              className="max-h-[85vh] w-auto rounded-lg"
-            />
-            <p className="mt-3 text-center text-sm text-ink-muted">
-              {active.title} — {active.issuer}
-            </p>
-          </div>
-        </div>
-      ) : null}
+              <div
+                className="relative max-h-full max-w-4xl"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  onClick={close}
+                  aria-label="Close"
+                  className="absolute right-2 top-2 flex h-9 w-9 items-center justify-center rounded-full bg-surface-raised text-ink transition-colors hover:text-neon-cyan focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan"
+                >
+                  ×
+                </button>
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="max-h-[85vh] w-auto rounded-lg"
+                />
+                <p className="mt-3 text-center text-sm text-ink-muted">
+                  {active.title} — {active.issuer}
+                </p>
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </Section>
   )
 }

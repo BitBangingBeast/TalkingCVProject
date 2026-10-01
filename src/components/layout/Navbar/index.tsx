@@ -14,7 +14,7 @@ const navItems: Array<{ label: string; target: string }> = [
 ]
 
 const linkBase =
-  'rounded-lg px-3 py-2 text-sm transition-colors hover:text-neon-cyan'
+  'rounded-lg px-3 py-2 text-sm transition-all duration-200 hover:text-neon-cyan active:scale-95 motion-reduce:active:scale-100'
 const linkActive = 'bg-neon-cyan/10 font-medium text-neon-cyan'
 
 export default function Navbar() {

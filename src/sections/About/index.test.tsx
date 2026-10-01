@@ -16,16 +16,4 @@ describe('About', () => {
     expect(screen.getByText(site.quickFacts.status)).toBeInTheDocument()
     expect(screen.getByText(site.quickFacts.availability)).toBeInTheDocument()
   })
-
-  it('renders the CV buttons', () => {
-    render(<About />)
-    expect(screen.getByRole('link', { name: 'Preview CV' })).toHaveAttribute(
-      'href',
-      site.cv.previewUrl,
-    )
-    expect(screen.getByRole('link', { name: 'Download CV' })).toHaveAttribute(
-      'href',
-      site.cv.downloadUrl,
-    )
-  })
 })

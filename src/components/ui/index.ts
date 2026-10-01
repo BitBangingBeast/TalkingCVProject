@@ -1,4 +1,6 @@
 export { Button } from './Button'
 export { Card } from './Card'
+export { DropdownMenu } from './DropdownMenu'
+export type { DropdownMenuItem } from './DropdownMenu'
 export { SectionHeading } from './SectionHeading'
 export { Section } from './Section'

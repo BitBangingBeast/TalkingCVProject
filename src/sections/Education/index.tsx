@@ -5,7 +5,6 @@ export default function Education() {
   return (
     <Section id="education">
       <SectionHeading
-        eyebrow="Learning"
         title="Education"
         subtitle="My academic background and studies."
       />

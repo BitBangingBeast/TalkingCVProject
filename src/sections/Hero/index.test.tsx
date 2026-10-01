@@ -25,4 +25,34 @@ describe('Hero', () => {
 
     expect(onStartTour).toHaveBeenCalledTimes(1)
   })
+
+  it('opens a CV menu with a download option', async () => {
+    const user = userEvent.setup()
+    render(<Hero />)
+
+    await user.click(screen.getByRole('button', { name: 'CV' }))
+
+    expect(
+      screen.getByRole('menuitem', { name: 'Download CV' }),
+    ).toHaveAttribute('href', site.cv.downloadUrl)
+    expect(
+      screen.queryByRole('menuitem', { name: 'Preview CV' }),
+    ).not.toBeInTheDocument()
+  })
+
+  it('opens the CV preview on the second click of the CV button', async () => {
+    const user = userEvent.setup()
+    const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
+    render(<Hero />)
+
+    await user.click(screen.getByRole('button', { name: 'CV' }))
+    await user.click(screen.getByRole('button', { name: 'Preview CV' }))
+
+    expect(openSpy).toHaveBeenCalledWith(
+      site.cv.previewUrl,
+      '_blank',
+      'noopener,noreferrer',
+    )
+    openSpy.mockRestore()
+  })
 })

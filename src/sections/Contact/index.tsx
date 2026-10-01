@@ -15,7 +15,6 @@ export default function Contact() {
   return (
     <Section id="contact">
       <SectionHeading
-        eyebrow="Get in touch"
         title="Contact"
         subtitle="Reach out about internships, freelance work, or just to say hi."
       />

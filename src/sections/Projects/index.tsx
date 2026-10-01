@@ -12,7 +12,6 @@ export default function Projects() {
   return (
     <Section id="projects">
       <SectionHeading
-        eyebrow="Portfolio"
         title="Projects"
         subtitle="A selection of things I have designed and built."
       />

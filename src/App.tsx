@@ -19,17 +19,19 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <main>
-        <Hero onStartTour={() => setIsTourActive(true)} />
-        <About />
-        <Skills />
-        <Projects />
-        <WorkExperience />
-        <Education />
-        <Certifications />
-        <MotivationLetter />
-        <Contact />
-      </main>
+      <div className="app-scroll">
+        <main>
+          <Hero onStartTour={() => setIsTourActive(true)} />
+          <About />
+          <Skills />
+          <Projects />
+          <WorkExperience />
+          <Education />
+          <Certifications />
+          <MotivationLetter />
+          <Contact />
+        </main>
+      </div>
       {isTourActive ? (
         <Suspense fallback={null}>
           <TourGuide

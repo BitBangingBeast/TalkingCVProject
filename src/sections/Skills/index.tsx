@@ -14,7 +14,6 @@ export default function Skills() {
   return (
     <Section id="skills">
       <SectionHeading
-        eyebrow="Skills"
         title="Technologies I Use"
         subtitle="Tools and practices I reach for when building for the web."
       />

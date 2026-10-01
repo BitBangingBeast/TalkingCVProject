@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { describe, expect, it } from 'vitest'
 import { motivationLetterBody, site } from '../../data'
 import MotivationLetter from './index'
@@ -9,16 +10,14 @@ describe('MotivationLetter', () => {
     expect(screen.getByText(motivationLetterBody[0])).toBeInTheDocument()
   })
 
-  it('renders the Preview and Download buttons with correct hrefs', () => {
+  it('exposes a menu with a download option for the letter', async () => {
+    const user = userEvent.setup()
     render(<MotivationLetter />)
 
-    const preview = screen.getByRole('link', {
-      name: 'Preview in new window',
-    })
-    expect(preview).toHaveAttribute('href', site.motivationLetter.previewUrl)
-    expect(preview).toHaveAttribute('target', '_blank')
+    await user.click(screen.getByRole('button', { name: 'Motivation Letter' }))
 
-    const download = screen.getByRole('link', { name: 'Download PDF' })
-    expect(download).toHaveAttribute('href', site.motivationLetter.downloadUrl)
+    expect(
+      screen.getByRole('menuitem', { name: 'Download PDF' }),
+    ).toHaveAttribute('href', site.motivationLetter.downloadUrl)
   })
 })

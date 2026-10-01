@@ -1,4 +1,5 @@
 import { Button, Section } from '../../components/ui'
+import { DocumentMenu } from '../../components/DocumentMenu'
 import { site } from '../../data'
 
 interface HeroProps {
@@ -20,28 +21,13 @@ export default function Hero({ onStartTour = () => {} }: HeroProps) {
 
           <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
             <Button onClick={onStartTour}>Start the Tour</Button>
-            <Button href="#projects" variant="secondary">
-              View Projects
-            </Button>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-            <a
-              href={site.cv.previewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-neon-cyan transition-colors hover:text-neon-magenta"
-            >
-              Preview CV
-            </a>
-            <span className="text-ink-muted">·</span>
-            <a
-              href={site.cv.downloadUrl}
-              download
-              className="text-sm text-neon-cyan transition-colors hover:text-neon-magenta"
-            >
-              Download CV
-            </a>
+            <DocumentMenu
+              label="CV"
+              openLabel="Preview CV"
+              previewUrl={site.cv.previewUrl}
+              downloadUrl={site.cv.downloadUrl}
+              downloadLabel="Download CV"
+            />
           </div>
 
           <ul className="flex items-center gap-4">
@@ -60,7 +46,7 @@ export default function Hero({ onStartTour = () => {} }: HeroProps) {
           </ul>
         </div>
 
-        <div className="bg-gradient-brand h-64 w-64 rounded-full md:h-80 md:w-80" />
+        <div className="bg-gradient-brand h-64 w-64 animate-float rounded-full md:h-80 md:w-80 motion-reduce:animate-none" />
       </div>
     </Section>
   )

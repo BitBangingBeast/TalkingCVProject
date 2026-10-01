@@ -11,6 +11,42 @@
 
   --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Comfortaa', ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-slide: fade-slide 0.25s ease-out both;
+  --animate-menu-in: menu-in 0.18s ease-out both;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes fade-slide {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
 }
 
 :root {
@@ -20,16 +56,36 @@
     #ff2ec4 50%,
     #7c3aed 100%
   );
+  --glow-cyan: rgba(0, 229, 255, 0.12);
+  --glow-magenta: rgba(255, 46, 196, 0.1);
+  --glow-violet: rgba(124, 58, 237, 0.13);
+  --nav-height: 4.5rem;
+  --fade-top: 3rem;
+  --fade-bottom: 3rem;
 }
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-surface);
 }
 
 body {
-  background-color: var(--color-surface);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  overflow: hidden;
+}
+
+/* Ambient glow behind the content so the dark background isn't flat. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(50rem 50rem at 8% -5%, var(--glow-cyan), transparent 60%),
+    radial-gradient(45rem 45rem at 95% 5%, var(--glow-magenta), transparent 60%),
+    radial-gradient(60rem 60rem at 50% 105%, var(--glow-violet), transparent 60%);
 }
 
 .text-gradient {
@@ -43,8 +99,38 @@ body {
   background: var(--gradient-brand);
 }
 
+/* The page scrolls inside this container. A mask fades the content itself at
+   the top and bottom viewport edges (no overlay), so elements dissolve as they
+   scroll in and out. The top stays fully transparent behind the fixed navbar,
+   then ramps up just below it, so the fade is actually visible. */
+.app-scroll {
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) var(--nav-height),
+    #000 calc(var(--nav-height) + var(--fade-top)),
+    #000 calc(100% - var(--fade-bottom)),
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) var(--nav-height),
+    #000 calc(var(--nav-height) + var(--fade-top)),
+    #000 calc(100% - var(--fade-bottom)),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
+    scroll-behavior: auto;
+  }
+
+  .app-scroll {
     scroll-behavior: auto;
   }
 }

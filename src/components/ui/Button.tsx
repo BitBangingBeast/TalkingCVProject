@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { AriaAttributes, ReactNode } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary'
 
@@ -10,10 +10,12 @@ interface ButtonProps {
   href?: string
   target?: string
   rel?: string
+  'aria-expanded'?: AriaAttributes['aria-expanded']
+  'aria-haspopup'?: AriaAttributes['aria-haspopup']
 }
 
 const base =
-  'inline-flex items-center justify-center rounded-lg px-6 py-3 font-display text-sm font-semibold transition-all duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan'
+  'inline-flex items-center justify-center rounded-lg px-6 py-3 font-display text-sm font-semibold transition-all duration-200 active:scale-[0.97] motion-reduce:transition-none motion-reduce:active:scale-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan'
 
 const variants: Record<ButtonVariant, string> = {
   primary:
@@ -30,6 +32,8 @@ export function Button({
   href,
   target,
   rel,
+  'aria-expanded': ariaExpanded,
+  'aria-haspopup': ariaHaspopup,
 }: ButtonProps) {
   const classes = `${base} ${variants[variant]} ${className ?? ''}`.trim()
 
@@ -42,7 +46,13 @@ export function Button({
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes}>
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={ariaExpanded}
+      aria-haspopup={ariaHaspopup}
+      className={classes}
+    >
       {children}
     </button>
   )
