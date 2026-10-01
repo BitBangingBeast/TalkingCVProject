@@ -12,11 +12,22 @@ describe('Contact', () => {
     }
   })
 
-  it('renders an Email me button linking to the email address', () => {
+  it('makes the email, phone, and LinkedIn cards clickable', () => {
     render(<Contact />)
-    const email = contact.find((item) => item.type === 'email')
-    const button = screen.getByRole('link', { name: 'Email me' })
-    expect(button).toBeInTheDocument()
-    expect(button).toHaveAttribute('href', email?.link)
+    for (const type of ['email', 'linkedin', 'phone']) {
+      const item = contact.find((entry) => entry.type === type)
+      expect(item).toBeDefined()
+      expect(screen.getByText(item!.value).closest('a')).toHaveAttribute(
+        'href',
+        item!.link,
+      )
+    }
+  })
+
+  it('does not link the location card', () => {
+    render(<Contact />)
+    const location = contact.find((entry) => entry.type === 'location')
+    expect(location).toBeDefined()
+    expect(screen.getByText(location!.value).closest('a')).toBeNull()
   })
 })

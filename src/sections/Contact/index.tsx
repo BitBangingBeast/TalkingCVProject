@@ -1,4 +1,4 @@
-import { Button, Card, Section, SectionHeading } from '../../components/ui'
+import { Card, Section, SectionHeading } from '../../components/ui'
 import { contact } from '../../data'
 
 const iconByType: Record<string, string> = {
@@ -10,8 +10,6 @@ const iconByType: Record<string, string> = {
 }
 
 export default function Contact() {
-  const email = contact.find((item) => item.type === 'email')
-
   return (
     <Section id="contact">
       <SectionHeading
@@ -22,32 +20,39 @@ export default function Contact() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {contact.map((item) => {
           const isExternal = item.link.startsWith('http')
-          return (
-            <Card key={item.type} className="flex flex-col gap-3">
+          const isClickable = item.link !== '' && item.link !== '#'
+
+          const content = (
+            <Card className="flex h-full flex-col gap-3">
               <span aria-hidden="true" className="text-2xl">
                 {iconByType[item.type] ?? '🔗'}
               </span>
               <h3 className="font-display text-sm font-semibold text-ink">
                 {item.label}
               </h3>
-              <a
-                href={item.link}
-                target={isExternal ? '_blank' : undefined}
-                rel={isExternal ? 'noreferrer noopener' : undefined}
-                className="break-all text-sm text-ink-muted transition-colors hover:text-neon-cyan"
-              >
+              <span className="break-all text-sm text-ink-muted transition-colors group-hover:text-neon-cyan">
                 {item.value}
-              </a>
+              </span>
             </Card>
+          )
+
+          if (!isClickable) {
+            return <div key={item.type}>{content}</div>
+          }
+
+          return (
+            <a
+              key={item.type}
+              href={item.link}
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noreferrer noopener' : undefined}
+              className="group block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-cyan"
+            >
+              {content}
+            </a>
           )
         })}
       </div>
-
-      {email ? (
-        <div className="mt-10 flex justify-center">
-          <Button href={email.link}>Email me</Button>
-        </div>
-      ) : null}
     </Section>
   )
 }
