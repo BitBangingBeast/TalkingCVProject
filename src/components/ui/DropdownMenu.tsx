@@ -19,7 +19,7 @@ interface DropdownMenuProps {
   className?: string
 }
 
-const CLOSE_DELAY_MS = 500
+const CLOSE_DELAY_MS = 300
 
 export function DropdownMenu({
   label,
