@@ -40,10 +40,20 @@ export default function Projects() {
               ))}
             </div>
             <div className="mt-auto flex flex-wrap gap-3">
-              <Button href={project.github} variant="secondary">
+              <Button
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="secondary"
+              >
                 View in GitHub
               </Button>
-              <Button href={project.live} variant="secondary">
+              <Button
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="secondary"
+              >
                 Live
               </Button>
             </div>

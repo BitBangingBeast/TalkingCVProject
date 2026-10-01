@@ -12,6 +12,19 @@ describe('Projects', () => {
     }
   })
 
+  it('opens external project links in a new tab', () => {
+    render(<Projects />)
+    const links = [
+      ...screen.getAllByRole('link', { name: 'View in GitHub' }),
+      ...screen.getAllByRole('link', { name: 'Live' }),
+    ]
+    expect(links).toHaveLength(projects.length * 2)
+    for (const link of links) {
+      expect(link).toHaveAttribute('target', '_blank')
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+    }
+  })
+
   it('renders tech tag names resolved from skills', () => {
     render(<Projects />)
     const skillNames = new Map(skills.map((skill) => [skill.id, skill.name]))
