@@ -12,23 +12,23 @@ const props = {
 }
 
 describe('DocumentMenu', () => {
-  it('shows a download option when the trigger is clicked', async () => {
+  it('shows a download option on hover', async () => {
     const user = userEvent.setup()
     render(<DocumentMenu {...props} />)
 
-    await user.click(screen.getByRole('button', { name: 'Motivation Letter' }))
+    await user.hover(screen.getByRole('button', { name: 'Motivation Letter' }))
 
     expect(
       screen.getByRole('menuitem', { name: 'Download PDF' }),
     ).toHaveAttribute('href', '/docs/motivation-letter.pdf')
   })
 
-  it('opens the preview on the second click', async () => {
+  it('opens the preview when the trigger is clicked while open', async () => {
     const user = userEvent.setup()
     const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
     render(<DocumentMenu {...props} />)
 
-    await user.click(screen.getByRole('button', { name: 'Motivation Letter' }))
+    await user.hover(screen.getByRole('button', { name: 'Motivation Letter' }))
     await user.click(screen.getByRole('button', { name: 'Preview' }))
 
     expect(openSpy).toHaveBeenCalledWith(

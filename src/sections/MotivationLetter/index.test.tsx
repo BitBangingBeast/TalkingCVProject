@@ -14,7 +14,7 @@ describe('MotivationLetter', () => {
     const user = userEvent.setup()
     render(<MotivationLetter />)
 
-    await user.click(screen.getByRole('button', { name: 'Motivation Letter' }))
+    await user.hover(screen.getByRole('button', { name: 'Motivation Letter' }))
 
     expect(
       screen.getByRole('menuitem', { name: 'Download PDF' }),

@@ -30,7 +30,7 @@ describe('Hero', () => {
     const user = userEvent.setup()
     render(<Hero />)
 
-    await user.click(screen.getByRole('button', { name: 'CV' }))
+    await user.hover(screen.getByRole('button', { name: 'CV' }))
 
     expect(
       screen.getByRole('menuitem', { name: 'Download CV' }),
@@ -40,12 +40,12 @@ describe('Hero', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('opens the CV preview on the second click of the CV button', async () => {
+  it('opens the CV preview when the CV button is clicked while open', async () => {
     const user = userEvent.setup()
     const openSpy = vi.spyOn(window, 'open').mockImplementation(() => null)
     render(<Hero />)
 
-    await user.click(screen.getByRole('button', { name: 'CV' }))
+    await user.hover(screen.getByRole('button', { name: 'CV' }))
     await user.click(screen.getByRole('button', { name: 'Preview CV' }))
 
     expect(openSpy).toHaveBeenCalledWith(
